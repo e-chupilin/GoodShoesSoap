@@ -1,0 +1,17 @@
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\implementation\GoodShoesPriceMySqlDao.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\GetAllPrice.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\SetShoesPriceResponse.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\GetAllPriceResponse.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\GetShoesPrice.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\GetShoesPriceResponse.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\factory\PriceFactory.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\GoodShoesPriceDao.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\bean\ShoesCost.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\GoodShoesPrice.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\jaxws\SetShoesPrice.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\implementation\GoodShoesPriceMemoryDao.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\GoodShoesImpl.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\interfaces\GoodShoes.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\connection\MySqlConnection.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\business\exception\DaoException.java
+C:\Users\ded\workspace\GoodShoesPriceTest\src\main\java\by\training\soap\service\constants\Constants.java

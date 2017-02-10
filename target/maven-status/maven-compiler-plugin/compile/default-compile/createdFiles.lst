@@ -1,0 +1,16 @@
+by\training\soap\service\business\implementation\GoodShoesPriceMySqlDao.class
+by\training\soap\service\interfaces\jaxws\GetShoesPrice.class
+by\training\soap\service\business\implementation\GoodShoesPriceMemoryDao.class
+by\training\soap\service\interfaces\jaxws\SetShoesPriceResponse.class
+by\training\soap\service\interfaces\GoodShoes.class
+by\training\soap\service\business\exception\DaoException.class
+by\training\soap\service\business\connection\MySqlConnection.class
+by\training\soap\service\interfaces\jaxws\GetShoesPriceResponse.class
+by\training\soap\service\interfaces\jaxws\GetAllPrice.class
+by\training\soap\service\business\factory\PriceFactory.class
+by\training\soap\service\interfaces\GoodShoesPriceDao.class
+by\training\soap\service\constants\Constants.class
+by\training\soap\service\GoodShoesImpl.class
+by\training\soap\service\business\GoodShoesPrice.class
+by\training\soap\service\interfaces\jaxws\SetShoesPrice.class
+by\training\soap\service\interfaces\jaxws\GetAllPriceResponse.class

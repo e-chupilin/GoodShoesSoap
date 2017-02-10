@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://interfaces.service.soap.training.by/" xmlns:tns="http://interfaces.service.soap.training.by/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getAllPrices" type="tns:getAllPrices"/>
+
+  <xs:element name="getAllPricesResponse" type="tns:getAllPricesResponse"/>
+
+  <xs:element name="getShoesPrice" type="tns:getShoesPrice"/>
+
+  <xs:element name="getShoesPriceResponse" type="tns:getShoesPriceResponse"/>
+
+  <xs:element name="setShoesPrice" type="tns:setShoesPrice"/>
+
+  <xs:element name="setShoesPriceResponse" type="tns:setShoesPriceResponse"/>
+
+  <xs:complexType name="getShoesPrice">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getShoesPriceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setShoesPrice">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:shoesCost" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="shoesCost">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="price" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setShoesPriceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllPrices">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllPricesResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:shoesCost" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

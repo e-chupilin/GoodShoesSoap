@@ -6,18 +6,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 import by.training.soap.service.business.exception.GoodShoesPriceException;
 import static by.training.soap.service.constants.Constants.*;
 
 public class MySqlConnection {
+	private static final Logger LOGGER = Logger.getLogger(MySqlConnection.class);
 	private static Connection connection = null;
 
 	public static Statement createStatement(Connection cn) throws GoodShoesPriceException {
 		try {
 			return cn.createStatement();
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
+			LOGGER.error("Sql error. Error create statement: " + e.getMessage());
 			throw new GoodShoesPriceException(ERROR_SQL_DAO);
 		}
 	}
@@ -26,8 +28,7 @@ public class MySqlConnection {
 		try {
 			Class.forName(SQL_DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
+			LOGGER.error("Sql error. Driver not load: " + e.getMessage());
 			throw new GoodShoesPriceException(ERROR_SQL_DAO);
 		}
 	}
@@ -36,30 +37,30 @@ public class MySqlConnection {
 		try {
 			connection = DriverManager.getConnection(SQL_URL, SQL_USER, SQL_PASSWORD);
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
+			LOGGER.error("Sql error. Connection not load: " + e.getMessage());
 			throw new GoodShoesPriceException(ERROR_SQL_DAO);
 		}
 	}
 
 	public static Connection getConnection() throws GoodShoesPriceException {
 		if (connection == null) {
+			LOGGER.info("Create new data base sql connection.");
 			loadDriver();
 			loadConnection();
 		}
+		LOGGER.info("Return data base sql connection.");
 		return connection;
 	}
 
 	public static void closeConnection() {
 		if (connection == null) {
-			System.err.println(ERROR_SQL_FAIL_CLOSE_CONNECT);
+			LOGGER.error("Sql error. Error close connection.");
 		} else
 			try {
 				connection.close();
 				connection = null;
 			} catch (SQLException e) {
-				System.err.println(ERROR_SQL_FAIL_CLOSE_CONNECT);
-				e.printStackTrace();
+				LOGGER.error("Sql error. Error close connection: " + e.getMessage());
 			}
 	}
 
@@ -68,8 +69,7 @@ public class MySqlConnection {
 			try {
 				rs.close();
 			} catch (SQLException e) {
-				System.err.println(ERROR_SQL_FAIL_CLOSE_RESULT_SET);
-				e.printStackTrace();
+				LOGGER.error("Sql error. Error close result set: " + e.getMessage());
 			}
 		}
 	}
@@ -80,8 +80,7 @@ public class MySqlConnection {
 				try {
 					statement.close();
 				} catch (SQLException e) {
-					System.err.println(ERROR_SQL_FAIL_CLOSE_STATEMENT);
-					e.printStackTrace();
+					LOGGER.error("Sql error. Error close statement: " + e.getMessage());
 				}
 			}
 		}

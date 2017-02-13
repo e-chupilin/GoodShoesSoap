@@ -1,5 +1,6 @@
 package by.training.soap.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +61,7 @@ public class GoodShoesImpl implements GoodShoes {
 	public List<ShoesCost> getAllPrices() {
 		try {
 		List<ShoesCost> allPriceList = shoesPrice.getAllPrice();
-		LOGGER.info("getAllPrice: " + allPriceList.size() + " elements.");
+		LOGGER.info("Return: " + allPriceList.size() + " elements.");
 		return allPriceList;
 	} catch (GoodShoesPriceException e) {
 		LOGGER.error(GOOD_SHOES_ERROR + "getAllPrices() - throw new HTTPException(401)");
@@ -74,17 +75,21 @@ public class GoodShoesImpl implements GoodShoes {
 		try {
 			MessageContext messageContext = context.getMessageContext();
 			Map httpHeaders = (Map) messageContext.get(MessageContext.HTTP_REQUEST_HEADERS);
-			List userNameList = (List) httpHeaders.get(HTTP_HEADER_NAME);
-			List passwordList = (List) httpHeaders.get(HTTP_HEADER_PASS);
-			if (userNameList.contains("manager") && passwordList.contains("123456")) {
+			List managers = (List) httpHeaders.get(HTTP_HEADER_NAME);
+			List passwords = (List) httpHeaders.get(HTTP_HEADER_PASS);
+			String manager = (String) managers.get(MANAGER_INDEX);
+			String password = (String) passwords.get(PASSWORD_INDEX);
+			LOGGER.info("Try to authenticated: " + manager + DASH + password);
+			if (MANAGER_LOGINS.contains(manager) && MANAGER_PASSWORDS.contains(password)) {
 				LOGGER.info("Authenticated: OK");
 				return true;
 			} else {
-				LOGGER.info("Authenticated: error");
+				LOGGER.info("Authenticated: error.");
 				return false;
 			}
-		} catch (NullPointerException e) {
+		} catch (NullPointerException | IndexOutOfBoundsException e) {
 			LOGGER.error("Authenticated: error. Header authenticated data is empty." + e.toString());
+			
 			return false;
 		}
 	}
